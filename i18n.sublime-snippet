@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+__( '${1}', '$2' )
+]]></content>
+	<tabTrigger>i18n</tabTrigger>
+</snippet>

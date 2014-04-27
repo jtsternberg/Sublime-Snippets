@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+<?php _e( '${1}', '$2' ); ?>
+]]></content>
+	<tabTrigger>eei18n</tabTrigger>
+</snippet>

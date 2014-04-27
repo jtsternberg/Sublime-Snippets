@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+\$.ajax({
+	type     : 'post',
+	dataType : 'json',
+	url      : ${1:l10n.ajaxurl},
+	success  : ${2:function( response ) {\}},
+	data     : {
+		'action' : ${3:l10n.ajax_action},
+		'nonce'  : ${4:l10n.ajax_nonce}
+	}
+});
+]]></content>
+	<tabTrigger>jqajax</tabTrigger>
+</snippet>

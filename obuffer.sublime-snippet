@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+ob_start();
+${1:// Do html}
+// grab the data from the output buffer and add it to our \$content variable
+\$content = ob_get_contents();
+ob_end_clean();
+$2
+]]></content>
+	<tabTrigger>obuffer</tabTrigger>
+</snippet>

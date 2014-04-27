@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+'. __( '$1', '$2' ) .'$3
+]]></content>
+	<tabTrigger>injecti18n</tabTrigger>
+</snippet>

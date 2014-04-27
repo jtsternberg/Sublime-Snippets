@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+Backbone.Model.extend({
+	${1:defaults: {
+		${2:param}: ${3:''},
+	\}}
+});
+]]></content>
+	<tabTrigger>bbmodel</tabTrigger>
+</snippet>

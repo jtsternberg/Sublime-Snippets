@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+]]></content>
+	<tabTrigger>box-sizing:</tabTrigger>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+_e( '${1}', '$2' )
+]]></content>
+	<tabTrigger>ei18n</tabTrigger>
+</snippet>

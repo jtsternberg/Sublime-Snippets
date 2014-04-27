@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+\$( '$1' ).each(function( index ) {
+	var self = \$(this);
+	${2:console.log( index + ': ' + self.text() );}
+});
+]]></content>
+	<tabTrigger>jqueryeach</tabTrigger>
+</snippet>

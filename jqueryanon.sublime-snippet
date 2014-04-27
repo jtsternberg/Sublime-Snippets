@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+(function(${2:window, document, \$, undefined}){
+	'use strict';
+
+	var ${3:app} = {};
+
+	${4:// put all your jQuery goodness in here.}
+
+	return ${3:app};
+
+})(${1:window, document, jQuery});
+]]></content>
+	<tabTrigger>jqueryanon</tabTrigger>
+</snippet>

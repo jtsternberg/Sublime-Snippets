@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+class $1 {
+
+	// A single instance of this class.
+	public static \$instance = null;
+
+	/**
+	 * Creates or returns an instance of this class.
+	 * @since  0.1.0
+	 * @return $1 A single instance of this class.
+	 */
+	public static function go() {
+		if ( self::\$instance === null )
+			self::\$instance = new self();
+
+		return self::\$instance;
+	}
+
+	public function __construct() {
+		$2
+	}
+
+}
+$1::go();
+]]></content>
+	<tabTrigger>singleton</tabTrigger>
+</snippet>
