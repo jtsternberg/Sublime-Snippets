@@ -1,0 +1,3 @@
+[submodule "debuggers-special"]
+	path = debuggers-special
+	url = git@github.com:jtsternberg/Sublime-Text-2-WordPress-Debugging-Snippets.git
