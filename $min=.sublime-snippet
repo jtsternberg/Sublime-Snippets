@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+\$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+]]></content>
+	<tabTrigger>$min=</tabTrigger>
+</snippet>
