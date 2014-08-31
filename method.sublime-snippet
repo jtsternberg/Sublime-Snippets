@@ -1,9 +1,9 @@
 <snippet>
 	<content><![CDATA[
-${5:public} function ${1}(${2}) {
-	${3}
+${3:public} function ${1}(${2}) {
+	${4}
 }
-${4}
+
 ]]></content>
 	<tabTrigger>method</tabTrigger>
 </snippet>
