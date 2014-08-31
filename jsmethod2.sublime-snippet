@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+${1}: function(${2}) {
+	${4}
+}${3:,}
+
+]]></content>
+	<tabTrigger>jsmethod2</tabTrigger>
+</snippet>

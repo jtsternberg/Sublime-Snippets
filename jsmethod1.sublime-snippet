@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+${1:app}.${2} = function(${3}) {
+	${4}
+};
+
+]]></content>
+	<tabTrigger>jsmethod1</tabTrigger>
+</snippet>
