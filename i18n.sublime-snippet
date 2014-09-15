@@ -1,6 +1,8 @@
 <snippet>
 	<content><![CDATA[
-__( '${1}', '$2' )
+__( '${1:text}', '${2:domain}' )
 ]]></content>
+	<description>__() when not inside string</description>
 	<tabTrigger>i18n</tabTrigger>
+	<scope>source.php.embedded.block.html -string</scope>
 </snippet>

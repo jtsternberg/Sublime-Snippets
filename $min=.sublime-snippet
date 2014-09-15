@@ -2,5 +2,7 @@
 	<content><![CDATA[
 \$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 ]]></content>
+	<description>Asset minified extension</description>
 	<tabTrigger>$min=</tabTrigger>
+	<scope>source.php.embedded.block.html -string</scope>
 </snippet>
