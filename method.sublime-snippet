@@ -1,9 +1,11 @@
 <snippet>
 	<content><![CDATA[
-${3:public} function ${1}(${2}) {
-	${4}
+${4:public} function ${1:method_name}(${2: ${3:\$args} }) {
+	${5}
 }
 
 ]]></content>
+	<description>Class method</description>
 	<tabTrigger>method</tabTrigger>
+	<scope>source.php.embedded.block.html -string</scope>
 </snippet>
