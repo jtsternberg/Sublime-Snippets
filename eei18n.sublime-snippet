@@ -1,6 +1,8 @@
 <snippet>
 	<content><![CDATA[
-<?php _e( '${1}', '$2' ); ?>
+<?php _e( '${1:text}', '${2:domain}' ); ?>
 ]]></content>
+	<description>Break into PHP to add _e()</description>
 	<tabTrigger>eei18n</tabTrigger>
+	<scope>text.html.basic</scope>
 </snippet>
