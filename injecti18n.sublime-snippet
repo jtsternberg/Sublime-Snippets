@@ -1,6 +1,8 @@
 <snippet>
 	<content><![CDATA[
-'. __( '$1', '$2' ) .'$3
+' . __( '${1:text}', '${2:domain}' ) . '$3
 ]]></content>
+	<description>Break out of single quotes to add __()</description>
 	<tabTrigger>injecti18n</tabTrigger>
+	<scope>string.quoted.single.php</scope>
 </snippet>
