@@ -1,8 +1,8 @@
 <snippet>
 	<content><![CDATA[
-__( '${1:text}', '${2:domain}' )
+sprintf( __( '${1:text}', '${2:domain}' ), ${3:\$variable} );
 ]]></content>
-	<description>__() when not inside string</description>
-	<tabTrigger>i18n</tabTrigger>
+	<description>sprintf( __() ) when not inside string</description>
+	<tabTrigger>sprint18n</tabTrigger>
 	<scope>source.php.embedded.block.html -string, source.php.embedded.line.html -string, meta.tag.inline.any.html</scope>
 </snippet>
