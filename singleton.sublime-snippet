@@ -2,27 +2,27 @@
 	<content><![CDATA[
 class $1 {
 
-	// A single instance of this class.
-	public static \$instance = null;
+	protected static \$single_instance = null;
 
 	/**
 	 * Creates or returns an instance of this class.
 	 * @since  0.1.0
 	 * @return $1 A single instance of this class.
 	 */
-	public static function go() {
-		if ( self::\$instance === null )
-			self::\$instance = new self();
+	public static function get_instance() {
+		if ( null === self::\$single_instance ) {
+			self::\$single_instance = new self();
+		}
 
-		return self::\$instance;
+		return self::\$single_instance;
 	}
 
-	public function __construct() {
+	protected function __construct() {
 		$2
 	}
 
 }
-$1::go();
+$1::get_instance();
 ]]></content>
 	<tabTrigger>singleton</tabTrigger>
 </snippet>

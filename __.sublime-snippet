@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+__( '${1:text}', '${2:domain}' )
+]]></content>
+	<description>__() when not inside string</description>
+	<tabTrigger>__</tabTrigger>
+</snippet>
