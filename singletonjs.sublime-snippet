@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+window.$1 = window.$1 || {};
+window.$1.$2 = function() {
+	if ( window.$1.$2.prototype._singleinstance ) {
+		return window.$1.$2.prototype._singleinstance;
+	}
+
+	window.$1.$2.prototype._singleinstance = this;
+
+	this.init = function() {};
+
+	this.init();
+};
+
+var $2 = new window.$1.$2();
+$3
+]]></content>
+	<tabTrigger>singletonjs</tabTrigger>
+	<scope>source.js -string</scope>
+</snippet>

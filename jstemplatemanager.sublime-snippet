@@ -1,0 +1,54 @@
+<snippet>
+	<content><![CDATA[
+wds.util = wds.util || {};
+wds.util.templatemanager = function() {
+    if ( wds.util.templatemanager.prototype._singletoninstance ) {
+        return wds.util.templatemanager.prototype._singletoninstance;
+    }
+
+    // "private" variables
+    var templates = {};
+    var tpl_regex = new regexp();
+
+    wds.util.templatemanager.prototype._singletoninstance = this;
+
+    this.render = function ( id, variables ) {
+        if ( ! this.get_tpl( id ) ) {
+            throw "could not find template " + id;
+        }
+
+        return apply_data( this.get_tpl( id ), variables );
+    };
+
+    this.add_tpl = function( id, template ) {
+        templates[ id ] = template;
+    };
+
+    this.get_tpl = function( id ) {
+        return templates[ id ] || false;
+    };
+
+    function apply_data( template, variables ) {
+        for ( var key in variables ) {
+            if ( ! variables.hasownproperty( key ) ) {
+                continue;
+            }
+
+            tpl_regex.compile( '{' + key + '}', 'g' );
+            template = template.replace( tpl_regex, variables[ key ] );
+        }
+
+        return template;
+    }
+};
+
+// Now, no matter how many times we contruct this object...
+var MyTemplateUtility = new WDS.util.TemplateManager();
+MyTemplateUtility.add_tpl( 'my_template', '<div id="{div_id}">{div_content}</div>' );
+
+var SomeOtherTemplateUtility = new WDS.util.TemplateManager();
+console.log( SomeOtherTemplateUtility.get_tpl( 'my_template' ) ); // <div id="{div_id}">{div_content}</div>
+]]></content>
+	<tabTrigger>jstemplatemanager</tabTrigger>
+    <scope>source.js -string</scope>
+</snippet>

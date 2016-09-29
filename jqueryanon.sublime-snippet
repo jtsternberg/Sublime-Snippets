@@ -1,15 +1,23 @@
 <snippet>
 	<content><![CDATA[
-(function(${2:window, document, \$, undefined}){
+window.${1:YourObject} = window.${1:YourObject} || {};
+
+( function( window, document, \$, app, undefined ) {
 	'use strict';
 
-	var ${3:app} = {};
+	app.cache = function() {
+		app.\$ = {};
+	};
 
-	${4:// put all your jQuery goodness in here.}
+	app.init = function() {
+		app.cache();
 
-	return ${3:app};
+		${4:// put all your jQuery goodness in here.}
+	};
 
-})(${1:window, document, jQuery});
+	\$( app.init );
+
+} )( window, document, jQuery, window.${1:YourObject} );
 ]]></content>
 	<tabTrigger>jqueryanon</tabTrigger>
 </snippet>

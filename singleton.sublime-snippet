@@ -24,5 +24,7 @@ class $1 {
 }
 $1::get_instance();
 ]]></content>
+	<description>PHP Singleton Class</description>
 	<tabTrigger>singleton</tabTrigger>
+	<scope>source.php -string</scope>
 </snippet>

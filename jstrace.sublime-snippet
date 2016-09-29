@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+var err = new Error();
+console.log( 'trace', err.stack );
+$0
+]]></content>
+	<tabTrigger>trace</tabTrigger>
+	<scope>source.js -string</scope>
+</snippet>
