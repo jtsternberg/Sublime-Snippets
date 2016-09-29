@@ -17,5 +17,4 @@ var $2 = new window.$1.$2();
 $3
 ]]></content>
 	<tabTrigger>singletonjs</tabTrigger>
-	<scope>source.js -string</scope>
 </snippet>
