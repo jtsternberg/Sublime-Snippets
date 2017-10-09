@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+\$this->$0
+]]></content>
+	<description>$this-></description>
+	<tabTrigger>$t</tabTrigger>
+	<scope>source.php -string</scope>
+</snippet>
