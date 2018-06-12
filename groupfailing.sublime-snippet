@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+/**
+ * @group failing
+ */$0
+]]></content>
+	<tabTrigger>groupfailing</tabTrigger>
+</snippet>
