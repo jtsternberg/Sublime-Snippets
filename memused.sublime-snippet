@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+\$memory_before = memory_get_usage();
+${1:// do_the_thing();}
+\$memory_used = round( ( memory_get_usage() - \$memory_before ) / 1024, 2 );
+wp_die( '<xmp>\$memory_used: '. print_r( \$memory_used, true ) .'</xmp>' );
+$2
+]]></content>
+	<tabTrigger>memused</tabTrigger>
+</snippet>
