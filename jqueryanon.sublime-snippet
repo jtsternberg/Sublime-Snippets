@@ -17,7 +17,7 @@ window.${1:YourObject} = window.${1:YourObject} || {};
 
 	\$( app.init );
 
-}( window, document, jQuery, window.${1:YourObject} ) );
+} )( window, document, jQuery, window.${1:YourObject} );
 ]]></content>
 	<tabTrigger>jqueryanon</tabTrigger>
 </snippet>
