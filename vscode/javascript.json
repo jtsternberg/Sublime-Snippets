@@ -1,0 +1,76 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"debugger": {
+		"prefix": "debugger",
+		"body": "/*jshint -W087 */\ndebugger;\n$0"
+	},
+	"callbackcallee": {
+		"prefix": "callbackcallee",
+		"body": "/**\n * An example of a callee indicator, writing to a string.\n */\n\nfunction Hello()\n{\n    alert(\"caller is \" + arguments.callee.caller.toString());\n}$0"
+	},
+	"consoletable": {
+		"prefix": "consoletable",
+		"body": "console.table([{a:1, b:2, c:3}, {a:\"foo\", b:false, c:undefined}]);\nconsole.table([[1,2,3], [2,3,4]]);$0"
+	},
+	"consoletrace": {
+		"prefix": "consoletrace",
+		"body": "/**\n * console.trace\n * The console object also supports outputting a stack trace; this will show you the call path taken to\n * reach the point at which you call console.trace\n */\n\nfoo();\n\nfunction foo() {\n  function bar() {\n    console.trace();\n  }\n  bar();\n}$0"
+	},
+	"errorobject": {
+		"prefix": "errorobject",
+		"body": "/**\n* Throw an actual error if something is not an integer.\n*/\n\nfunction add(x,y){\n\tif( isNaN(x) || isNaN(y) ){\n\t\tthrow new Error(\"${1}\");\n\t} else {\n\n\t\t// In this example, ensure we're adding numbers,\n\t\t// not concatenating numeric strings\n\t\treturn (x * 1) + (y * 1);\n\t}\n}\nvar a;\n\ntry {\n\ta = add(9);\n} catch(e) {\n\t// throw an actual error here.\nconsole.error( e.message );\n}$0"
+	},
+	"performance": {
+		"prefix": "performance",
+		"body": "/**\n * PerformanceTiming interface\n *\n * Show the time elapsed between two events.\n */\n\nfunction some_thing() {\n  performance.now();\n  do_thing();\n  console.log(performance.now() );\n}$0"
+	},
+	"stacktrace": {
+		"prefix": "stacktrace",
+		"body": "/**\n * A stack trace example\n */\n\nfunction stackTrace() {\n    var err = new Error();\n    return err.stack;\n}$0"
+	},
+	"jqajax": {
+		"prefix": "jqajax",
+		"body": "\\$.ajax({\n\ttype     : 'post',\n\tdataType : 'json',\n\turl      : ${1:l10n.ajaxurl},\n\tsuccess  : ${2:function( response ) {\\}},\n\tdata     : {\n\t\t'action' : ${3:l10n.ajax_action},\n\t\t'nonce'  : ${4:l10n.ajax_nonce}\n\t}\n});$0"
+	},
+	"jqueryeach": {
+		"prefix": "jqueryeach",
+		"body": "\\$( '$1' ).each(function( index ) {\n\tvar self = \\$(this);\n\t${2:console.log( index + ': ' + self.text() );}\n});$0"
+	},
+	"jqueryready": {
+		"prefix": "jqueryready",
+		"body": "jQuery( function( \\$ ) {\n\t${1:// put all your jQuery goodness in here.}\n});\n$0"
+	},
+	"jsmethod1": {
+		"prefix": "jsmethod1",
+		"body": "${1:app}.${2} = function(${3}) {\n\t${4}\n};$0"
+	},
+	"jsmethod2": {
+		"prefix": "jsmethod2",
+		"body": "${1}: function(${2}) {\n\t${4}\n}${3:,}$0"
+	},
+	"jstemplatemanager": {
+		"prefix": "jstemplatemanager",
+		"body": "wds.util = wds.util || {};\nwds.util.templatemanager = function() {\n    if ( wds.util.templatemanager.prototype._singletoninstance ) {\n        return wds.util.templatemanager.prototype._singletoninstance;\n    }\n\n    // \"private\" variables\n    var templates = {};\n    var tpl_regex = new regexp();\n\n    wds.util.templatemanager.prototype._singletoninstance = this;\n\n    this.render = function ( id, variables ) {\n        if ( ! this.get_tpl( id ) ) {\n            throw \"could not find template \" + id;\n        }\n\n        return apply_data( this.get_tpl( id ), variables );\n    };\n\n    this.add_tpl = function( id, template ) {\n        templates[ id ] = template;\n    };\n\n    this.get_tpl = function( id ) {\n        return templates[ id ] || false;\n    };\n\n    function apply_data( template, variables ) {\n        for ( var key in variables ) {\n            if ( ! variables.hasownproperty( key ) ) {\n                continue;\n            }\n\n            tpl_regex.compile( '{' + key + '}', 'g' );\n            template = template.replace( tpl_regex, variables[ key ] );\n        }\n\n        return template;\n    }\n};\n\n// Now, no matter how many times we contruct this object...\nvar MyTemplateUtility = new WDS.util.TemplateManager();\nMyTemplateUtility.add_tpl( 'my_template', '<div id=\"{div_id}\">{div_content}</div>' );\n\nvar SomeOtherTemplateUtility = new WDS.util.TemplateManager();\nconsole.log( SomeOtherTemplateUtility.get_tpl( 'my_template' ) ); // <div id=\"{div_id}\">{div_content}</div>$0"
+	},
+	"trace": {
+		"prefix": "trace",
+		"body": "var err = new Error();\nconsole.log( 'trace', err.stack );\n$0"
+	},
+	"singletonjs": {
+		"prefix": "singletonjs",
+		"body": "window.$1 = window.$1 || {};\nwindow.$1.$2 = function() {\n\tif ( window.$1.$2.prototype._singleinstance ) {\n\t\treturn window.$1.$2.prototype._singleinstance;\n\t}\n\n\twindow.$1.$2.prototype._singleinstance = this;\n\n\tthis.init = function() {};\n\n\tthis.init();\n};\n\nvar $2 = new window.$1.$2();\n$3"
+	},
+
+}

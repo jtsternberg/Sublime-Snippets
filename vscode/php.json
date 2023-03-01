@@ -1,0 +1,188 @@
+{
+	// Place your snippets for php here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"adminnotice": {
+		"prefix": "adminnotice",
+		"body": "add_action( 'all_admin_notices', function() {\n\techo '<div id=\"message\" class=\"updated notice is-dismissible\"><p>';\n\n\t\techo '<xmp>${1}: '. print_r( ${1}, true ) .'</xmp>';\n\n\techo '</p></div>';\n} );$0"
+	},
+	"debug_backtrace": {
+		"prefix": "debug_backtrace",
+		"body": "array_map( function( \\$l ) { return preg_replace( '~^#\\d.? ~', '', \\$l ); }, explode( \"\\n\", (new \\Exception())->getTraceAsString() ) )$0"
+	},
+	"definedvars:": {
+		"prefix": "definedvars:",
+		"body": "${1:die}( '<style>html{background:#f1f1f1;}</style><xmp style=\"background:#fff;margin: 2em auto;padding: 1em 2em;\">'. __FUNCTION__ . ':' . __LINE__ .') '. print_r( get_defined_vars(), true ) .'</xmp>' );$0"
+	},
+	"PHP DOMDocument method": {
+		"prefix": "domdocumentmethod",
+		"body": "\\$dom = new DOMDocument;\n\n// http://stackoverflow.com/a/8218649/1883421\n@\\$dom->loadHTML( '<?xml encoding=\"UTF-8\">' . \\$content );\n\n\\$${2:link}s = array();\nforeach ( \\$dom->getElementsByTagName( '${1:a}' ) as \\$${2:link} ) {\n\t\\$${2:link}s[ \\$${2:link}->getAttributeNode( '${3:href}' )->nodeValue ] = \\$dom->saveHTML( \\$${2:link} );\n}\n\nreturn \\$${2:link}s;$0"
+	},
+	"dumpdefinedvars:": {
+		"prefix": "dumpdefinedvars:",
+		"body": "dumpVars( ${1:__METHOD__} . ':' . __LINE__${2}, get_defined_vars() );$0"
+	},
+	"dumpvars:": {
+		"prefix": "dumpvars:",
+		"body": "dumpVars( ${2:__METHOD__} . ':' . __LINE__${3}, ${1} );$0"
+	},
+	"echoprintr": {
+		"prefix": "echoprintr",
+		"body": "echo '<xmp>'. __LINE__ .') ${2}: '. print_r( ${1}, true ) .'</xmp>';$0"
+	},
+	"echovardump": {
+		"prefix": "echovardump",
+		"body": "echo '<div style=\"background:#eee;padding:1em;\"><strong>${1}:</strong><hr>', var_dump( ${1} ), '</div>';$0"
+	},
+	"echovarexport": {
+		"prefix": "echovarexport",
+		"body": "echo '<xmp>${1} = '. str_replace( ');', '];', preg_replace( array( \"/  /\", \"/\\s+=>\\s+/\" ), array( \"\\t\", \" => \" ), str_replace( array( 'stdClass::__set_state', 'array (', '),', \"=> \\n \", \"=> \\r \" ), array( '(object) ', '[', '],', '=>' ), var_export( ${1}, true ) ) ) . ';' ) .'</xmp>';$0"
+	},
+	"emailme": {
+		"prefix": "emailme",
+		"body": "wp_mail( 'justin@webdevstudios.com', '${2:Debug printout}', print_r(\\$${1}, true) );$0"
+	},
+	"err_line": {
+		"prefix": "err_line",
+		"body": "error_log( __FILE__ . ':' . __LINE__ );$0"
+	},
+	"Log defined vars": {
+		"prefix": "errdefinedvars:",
+		"body": "error_log( __METHOD__ . ':' . __LINE__ .') '. print_r( get_defined_vars(), true ) );$0"
+	},
+	"Throw print_r of data": {
+		"prefix": "errexcept",
+		"body": "${3:throw new \\Exception}( __METHOD__ . ':' . __LINE__ .') ${2}: '. print_r( ${1}, true ), __LINE__ );$0"
+	},
+	"errexport": {
+		"prefix": "errexport",
+		"body": "error_log( '${1} = '. preg_replace( array( \"/  /\", \"/\\s+=>\\s+/\" ), array( \"\\t\", \" => \" ), str_replace( array( 'stdClass::__set_state', 'array (', \"=> \\n \", \"=> \\r \" ), array( '(object) ', 'array(', '=>' ), var_export( ${1}, true ) ) ) .';' );$0"
+	},
+	"errlog": {
+		"prefix": "errlog",
+		"body": "error_log( __METHOD__ . ':' . __LINE__ .') ${2}: '. print_r( ${1}, true ) );$0"
+	},
+	"errmethod": {
+		"prefix": "errmethod",
+		"body": "error_log( __METHOD__ );$0"
+	},
+	"inlineaction": {
+		"prefix": "inlineaction",
+		"body": "add_action( '${1:init}', function(${4: \\$${5:thing}$6 }) {\n\t$0\n}, 10${2:, ${3:1}} );$0"
+	},
+	"inlinefilter": {
+		"prefix": "inlinefilter",
+		"body": "add_filter( '${1:the_content}', function( \\$${4:thing}$5 ) {\n\t$0\n\n\treturn \\$${4:thing};\n}, 10${2:, ${3:1}} );$0"
+	},
+	"logdefinedvars:": {
+		"prefix": "logdefinedvars:",
+		"body": "logVars( ${1:__METHOD__} . ':' . __LINE__${2}, get_defined_vars() );$0"
+	},
+	"logvars:": {
+		"prefix": "logvars:",
+		"body": "logVars( ${3:__METHOD__} . ':' . __LINE__ .') ${2}: ', ${1} );$0"
+	},
+	"outputdefinedvars:": {
+		"prefix": "outputdefinedvars:",
+		"body": "outputVars( ${1:__METHOD__} . ':' . __LINE__${2}, get_defined_vars() );$0"
+	},
+	"outputvars:": {
+		"prefix": "outputvars:",
+		"body": "outputVars( ${2:__METHOD__} . ':' . __LINE__${3}, ${1} );$0"
+	},
+	"safeprint": {
+		"prefix": "safeprint",
+		"body": "if ( isset( \\$_GET['jtdebug'] ) ) {\n\t${2:wp_die}( '<xmp style=\"padding: 50px; background: #eee; color: #000;\">'. __LINE__ .') ${1}: '. print_r( ${1}, true ) .'</xmp>' );\n}$0"
+	},
+	"saferprint": {
+		"prefix": "saferprint",
+		"body": "if ( isset( \\$_SERVER, \\$_SERVER['REMOTE_HOST'] ) && '174.106.239.98' == \\$_SERVER['REMOTE_HOST'] ) {\n\twp_die( '<xmp style=\"padding: 50px; background: #eee; color: #000;\">${1}: '. print_r( ${1}, true ) .'</xmp>' );\n}$0"
+	},
+	"todebuglog": {
+		"prefix": "todebuglog",
+		"body": "file_put_contents( WP_CONTENT_DIR . '/${3:custom_debug}.log', \"[\" . date('Y-m-d H:i:s') . '] ${2:${1}}: '. print_r( ${1}, true ) . \"\\n\", FILE_APPEND );$0"
+	},
+	"wpdie:": {
+		"prefix": "wpdie:",
+		"body": "${3:die}( '<style>html{background:#f1f1f1;}</style><xmp style=\"background:#fff;margin: 2em auto;padding: 1em 2em;\">'. __LINE__ .') ${2}: '. print_r( ${1}, true ) .'</xmp>' );$0"
+	},
+	"Asset minified extension": {
+		"prefix": "$min=",
+		"body": "\\$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';$0"
+	},
+	"$this->": {
+		"prefix": "$t",
+		"body": "\\$this->$0"
+	},
+	"__() when not inside string": {
+		"prefix": "__",
+		"body": "__( '${1:text}', '${2:domain}' )$0"
+	},
+	"callback": {
+		"prefix": "callback",
+		"body": "[ ${2:\\$this}, '${1}' ]$0"
+	},
+	"`": {
+		"prefix": "`",
+		"body": "/* `${1}\n---------------------------------------------------------*/\n\n${2}$0"
+	},
+	"Break into PHP to add _e()": {
+		"prefix": "eei18n",
+		"body": "<?php _e( '${1:text}', '${2:domain}' ); ?>$0"
+	},
+	"ei18n": {
+		"prefix": "ei18n",
+		"body": "_e( '${1}', '$2' )$0"
+	},
+	"groupfailing": {
+		"prefix": "groupfailing",
+		"body": "/**\n * @group failing\n */$0"
+	},
+	"i18n: __() when not inside string": {
+		"prefix": "i18n",
+		"body": "__( '${1:text}', '${2:domain}' )$0"
+	},
+	"Break out of single quotes to add __()": {
+		"prefix": "injecti18n",
+		"body": "' . __( '${1:text}', '${2:domain}' ) . '$3"
+	},
+	"memused": {
+		"prefix": "memused",
+		"body": "\\$memory_before = memory_get_usage();\n${1:// do_the_thing();}\n\\$memory_used = round( ( memory_get_usage() - \\$memory_before ) / 1024, 2 );\nwp_die( '<xmp>\\$memory_used: '. print_r( \\$memory_used, true ) .'</xmp>' );\n$2"
+	},
+	"PHP Class method": {
+		"prefix": "method",
+		"body": "${4:public} function ${1:method_name}(${2: ${3:\\$args} }) {\n\t${5}\n}$0"
+	},
+	"obuffer": {
+		"prefix": "obuffer",
+		"body": "ob_start();\n${1:// Do html}\n// grab the data from the output buffer and add it to our \\$content variable\n\\$content = ob_get_clean();\n$2"
+	},
+	"printf( __() ) when not inside string": {
+		"prefix": "print18n",
+		"body": "printf( __( '${1:text}', '${2:domain}' ), ${3:\\$variable} );$0"
+	},
+	"PHP Singleton Class": {
+		"prefix": "singleton",
+		"body": "class $1 {\n\n\t/**\n\t * Creates or returns an instance of this class.\n\t * @since  0.1.0\n\t * @return $1 A single instance of this class.\n\t */\n\tpublic static function get_instance() {\n\t\tstatic \\$instance = null;\n\n\t\tif ( null === \\$instance ) {\n\t\t\t\\$instance = new self();\n\t\t}\n\n\t\treturn \\$instance;\n\t}\n\n\tprotected function __construct() {\n\t\t$2\n\t}\n\n}\n$1::get_instance();$0"
+	},
+	"sprintf( __() ) when not inside string": {
+		"prefix": "sprint18n",
+		"body": "sprintf( __( '${1:text}', '${2:domain}' ), ${3:\\$variable} );$0"
+	},
+	"templateloader": {
+		"prefix": "templateloader",
+		"body": "/**\n * $4 Template Loader\n *\n * @since NEXT\n * @package $4\n */\n\n/**\n * $4 Template Loader.\n *\n * @since NEXT\n */\nclass $1_Template_Loader {\n\n\t/**\n\t * Array of arguments for template\n\t *\n\t * @var array\n\t * @since  NEXT\n\t */\n\tpublic \\$args = array();\n\n\t/**\n\t * Template names array\n\t *\n\t * @var array\n\t * @since  NEXT\n\t */\n\tpublic \\$templates = array();\n\n\t/**\n\t * Template name\n\t *\n\t * @var string\n\t * @since  NEXT\n\t */\n\tpublic \\$template = '';\n\n\t/**\n\t * HTML view template loader constructor.\n\t *\n\t * @param string  \\$template The template file name, relative to the includes/templates/ folder - with or without .php extension\n\t * @param string  \\$name     The name of the specialised template. If array, will take the place of the \\$args.\n\t * @param array   \\$args     An array of arguments to extract as variables into the template\n\t *\n\t * @return void\n\t */\n\tpublic function __construct( \\$template, \\$name = null, array \\$args = array() ) {\n\t\tif ( empty( \\$template ) ) {\n\t\t\tthrow new Exception( 'Template variable required for '. __CLASS__ .'.' );\n\t\t}\n\n\t\t\\$templates = array();\n\n\t\tif ( is_array( \\$name ) ) {\n\t\t\t\\$this->args = \\$name;\n\t\t} else {\n\t\t\t\\$this->args = \\$args;\n\n\t\t\t\\$name = (string) \\$name;\n\t\t\tif ( '' !== \\$name ) {\n\t\t\t\t\\$this->templates[] = \"{\\$template}-{\\$name}.php\";\n\t\t\t}\n\t\t}\n\n\t\t\\$this->templates[] = \"{\\$template}.php\";\n\t}\n\n\t/**\n\t * Loads the view and outputs it\n\t *\n\t * @since  NEXT\n\t *\n\t * @param  boolean \\$echo Whether to output or return the template\n\t *\n\t * @return string        Rendered template\n\t */\n\tpublic function load( \\$echo = false ) {\n\t\t\\$template = \\$this->locate_template();\n\n\t\t// Filter args before outputting template.\n\t\t\\$this->args = apply_filters( \"template_attributes_for_{\\$this->template}\", \\$this->args );\n\n\t\ttry {\n\t\t\tob_start();\n\t\t\t// Do html\n\t\t\tinclude \\$template;\n\t\t\t// grab the data from the output buffer and add it to our \\$content variable\n\t\t\t\\$content = ob_get_clean();\n\t\t} catch ( Exception \\$e ) {\n\t\t\twpdie( \\$e->getMessage() );\n\t\t}\n\n\t\tif ( ! \\$echo ) {\n\t\t\treturn \\$content;\n\t\t}\n\n\t\techo \\$content;\n\t}\n\n\t/**\n\t * Retrieve the name of the highest priority template file that exists.\n\t *\n\t * Searches in the STYLESHEETPATH before TEMPLATEPATH and then this plugin's /templates\n\t * so that themes which inherit from a parent theme can just overload one file.\n\t *\n\t * @since  NEXT\n\t *\n\t * @return string The located template filename.\n\t */\n\tprotected function locate_template() {\n\t\t\\$located = '';\n\t\tforeach ( \\$this->templates as \\$template ) {\n\t\t\tif ( \\$located = \\$this->_locate( \\$template ) ) {\n\t\t\t\t\\$this->template = \\$template;\n\t\t\t\treturn \\$located;\n\t\t\t}\n\t\t}\n\n\t\treturn \\$located;\n\t}\n\n\t/**\n\t * Searches for template in 1) child theme, 2) parent theme, 3) this plugin.\n\t *\n\t * @since  NEXT\n\t *\n\t * @param  string \\$template Template file to search for.\n\t *\n\t * @return void\n\t */\n\tprotected function _locate( \\$template ) {\n\t\t\\$theme_file_path = '/$2/' . \\$template;\n\n\t\t\\$located = '';\n\t\tif ( file_exists( STYLESHEETPATH . \\$theme_file_path ) ) {\n\t\t\t\\$located = STYLESHEETPATH . \\$theme_file_path;\n\t\t} elseif ( file_exists( TEMPLATEPATH . \\$theme_file_path ) ) {\n\t\t\t\\$located = TEMPLATEPATH . \\$theme_file_path;\n\t\t} elseif(\n\t\t\t( \\$look = $3::dir( 'templates/' . \\$template ) )\n\t\t\t&& file_exists( \\$look )\n\t\t) {\n\t\t\t\\$located = \\$look;\n\t\t}\n\n\t\treturn \\$located;\n\t}\n\n\tpublic function get( \\$arg, \\$default = null ) {\n\t\tif ( isset( \\$this->args[ \\$arg ] ) ) {\n\t\t\treturn \\$this->args[ \\$arg ];\n\t\t}\n\n\t\treturn \\$default;\n\t}\n\n\tpublic function output( \\$arg, \\$esc_cb = '', \\$default = null ) {\n\t\t\\$val = \\$this->get( \\$arg, \\$default );\n\n\t\techo \\$esc_cb ? \\$esc_cb( \\$val ) : \\$val;\n\t}\n\n\tpublic function __toString() {\n\t\treturn \\$this->load();\n\t}\n\n\t/**\n\t * Render an HTML view with the given arguments and return the view's contents.\n\t *\n\t * @param string  \\$template The template file name, relative to the includes/templates/ folder - with or without .php extension\n\t * @param string  \\$name     The name of the specialised template. If array, will take the place of the \\$args.\n\t * @param array   \\$args     An array of arguments to extract as variables into the template\n\t *\n\t * @return string           Rendered template output\n\t */\n\tpublic static function get_template( \\$template, \\$name = null, array \\$args = array() ) {\n\t\t\\$view = new $1_Template_Loader( \\$template, \\$name, \\$args );\n\t\treturn \\$view->load();\n\t}\n\n\t/**\n\t * Render an HTML view with the given arguments and output the view's contents.\n\t *\n\t * @param string  \\$template The template file name, relative to the includes/templates/ folder - with or without .php extension\n\t * @param string  \\$name     The name of the specialised template. If array, will take the place of the \\$args.\n\t * @param array   \\$args     An array of arguments to extract as variables into the template\n\t *\n\t * @return void\n\t */\n\tpublic static function output_template( \\$template, \\$name = null, array \\$args = array() ) {\n\t\t\\$view = new $1_Template_Loader( \\$template, \\$name, \\$args );\n\t\t\\$view->load( 1 );\n\t}\n\n}\n$0"
+	}
+
+}
