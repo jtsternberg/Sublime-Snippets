@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-atomizr": "^0.6.1"
+  }
+}
