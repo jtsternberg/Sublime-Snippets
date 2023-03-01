@@ -1,0 +1,6 @@
+{
+    "errlog": {
+        "prefix": "errlog",
+        "body": "error_log( __METHOD__ . ':' . __LINE__ .') ${2}: '. print_r( ${1}, true ) );$0"
+    }
+}

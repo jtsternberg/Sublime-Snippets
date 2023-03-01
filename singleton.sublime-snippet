@@ -2,19 +2,19 @@
 	<content><![CDATA[
 class $1 {
 
-	protected static \$single_instance = null;
-
 	/**
 	 * Creates or returns an instance of this class.
 	 * @since  0.1.0
 	 * @return $1 A single instance of this class.
 	 */
 	public static function get_instance() {
-		if ( null === self::\$single_instance ) {
-			self::\$single_instance = new self();
+		static \$instance = null;
+
+		if ( null === \$instance ) {
+			\$instance = new self();
 		}
 
-		return self::\$single_instance;
+		return \$instance;
 	}
 
 	protected function __construct() {
